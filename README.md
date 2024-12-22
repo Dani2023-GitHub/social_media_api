@@ -17,3 +17,31 @@ A RESTful API for a social media platform built with Django and Django REST Fram
 - **Retrieve Comment**: `GET /api/posts/comments/<id>/`
 - **Update Comment**: `PUT /api/posts/comments/<id>/`
 - **Delete Comment**: `DELETE /api/posts/comments/<id>/`
+
+The authentication setup and how to test it
+
+The Social Media API uses Token-Based Authentication provided by Django REST Framework (DRF). Each user is assigned a unique token upon successful registration or login. This token is required to access protected endpoints.
+
+Testing Authentication
+
+Register a user:
+
+## POST /register/
+
+## Body: {username, email, password}
+
+## Response: {token}
+
+Login: -
+
+## POST /login/
+
+## Body: {username, password}
+
+## Response: {token}
+
+Access protected endpoints:
+
+## Add token to header: Authorization: Token <token>
+
+## Example: GET /profile/
